@@ -18,8 +18,8 @@ matrix:
     #   homebrew:
     #     update: true
     #     packages: python3
-  - os: windows-py3.7
-    name: windows
+  - name: windows-py3.7
+    os: windows
     language: shell
     before_install:
        - choco install python # python 3.7 apparently
@@ -36,3 +36,4 @@ install: pip3 install ipython-IDV
 # on windows python3 is command not found
 script:
     - python3 -c "import ipython_IDV" || python -c "import ipython_IDV"
+    - ipython -c "import ipython_IDV" || ipython -c "import ipython_IDV"
