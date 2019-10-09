@@ -20,7 +20,7 @@ matrix:
     #     packages: python3
   - os: windows-py3.7
     name: windows
-    language: minimal
+    language: shell
     before_install:
        - choco install python # python 3.7 apparently
        - python -m pip install --upgrade pip
@@ -32,6 +32,7 @@ matrix:
 
 # all languages should agree on these
 install: pip3 install ipython-IDV
+
+# on windows python3 is command not found
 script:
-    - python -c "print('hello')"
-    - python -c "import ipython_IDV"
+    - python3 -c "import ipython_IDV" || python -c "import ipython_IDV"
