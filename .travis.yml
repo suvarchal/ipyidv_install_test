@@ -6,8 +6,6 @@ matrix:
     python:
      - 3.6
      - 3.7
-    install: pip install ipython-IDV
-    script: python -c "print('hello')"
 
   - name: osx-py3.7
     os: osx
@@ -36,4 +34,4 @@ install: pip3 install ipython-IDV
 # on windows python3 is command not found
 script:
     - python3 -c "import ipython_IDV" || python -c "import ipython_IDV"
-    - ipython -c "import ipython_IDV" || ipython -c "import ipython_IDV"
+    - ipython -c "%load_ext ipython_IDV" 
