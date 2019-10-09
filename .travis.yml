@@ -6,18 +6,22 @@ python:
 matrix:
   include:
   - os: linux
+    name: linux
     python: 3.7
     install: pip install ipython-IDV
     script:
     - python -c "import ipython_IDV"
 
   - os: osx
+    name: osx
     language: minimal
     install: pip3 install ipython-IDV
     script:
+    - python -c "print('hello')"
     - python -c "import ipython_IDV"
 
   - os: windows
+    name: windows
     language: minimal
     before_install:
     - choco install python3
