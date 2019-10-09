@@ -1,32 +1,37 @@
 language: python
-python:
-  - 3.6
-  - 3.7
 
 matrix:
   include:
-  - os: osx
-    name: osx
-    language: minimal
-    env: TOXENV=py3
-    addons:
-       homebrew:
-         update: true
-         packages: python3
-    install: pip3 install ipython-IDV
-    script:
-    - python -c "print('hello')"
-    - python -c "import ipython_IDV"
-  - os: windows
+  - name: linux
+    python:
+     - 3.6
+     - 3.7
+    install: pip install ipython-IDV
+    script: python -c "print('hello')"
+
+  - name: osx-py3.7
+    os: osx
+    osx_image: xcode11 # python 3.7 apparently
+    language: shell
+    #env: TOXENV=py3
+    #addons:
+    #   homebrew:
+    #     update: true
+    #     packages: python3
+  - os: windows-py3.7
     name: windows
     language: minimal
     before_install:
-    - choco install python3
-    - export PATH="/c/Python37:/c/Python37/Scripts:$PATH"
-    install: pip3 install ipython-IDV
-    script:
-    - python -c "import ipython_IDV"
+       - choco install python # python 3.7 apparently
+       - python -m pip install --upgrade pip
+    env: PATH=/c/Python37:/c/Python37/Scripts:$PATH
+#    install: pip3 install ipython-IDV
+#    script:
+#       - python
+#       - python -c "import ipython_IDV"
 
-# tests on travis
-#install: pip install ipython-IDV
-#script: python -c "print('hello')"
+# all languages should agree on these
+install: pip3 install ipython-IDV
+script:
+    - python -c "print('hello')"
+    - python -c "import ipython_IDV"
