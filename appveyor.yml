@@ -1,0 +1,20 @@
+matrix:
+  fast_finish: true
+
+environment:
+  matrix:
+    - CONDA_PY: 36
+      CONDA_INSTALL_LOCN: "C:\\Miniconda36-x64"
+
+platform:
+  - x64
+
+build: off
+
+install:
+  - cmd: call %CONDA_INSTALL_LOCN%\Scripts\activate.bat
+  - cmd: conda config --set show_channel_urls true
+  #- cmd: conda config --add channels conda-forge
+  - cmd: pip install ipython-IDV
+  - cmd: python -c "import ipython_IDV"
+  
