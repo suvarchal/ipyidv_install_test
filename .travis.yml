@@ -5,9 +5,9 @@ language: python
 python:
  - '3.6'
  - '3.7'
-before_install:
+install:
 # - sudo apt-get update -q
-  - travis_retry pip install ipython-IDV 
+  - pip install ipython-IDV 
 script:
   - python -c "import ipython_IDV"
   - ipython -c "%load_ext ipython_IDV"
