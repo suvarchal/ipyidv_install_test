@@ -29,9 +29,12 @@ matrix:
 #       - python -c "import ipython_IDV"
 
 # all languages should agree on these
-install: pip3 install ipython-IDV
+install:
+    - pip3 install ipywidgets 
+    - pip3 install requests
+    - pip3 install ipython-IDV
 
 # on windows python3 is command not found
 script:
-    - python3 -c "import ipython_IDV" || python -c "import ipython_IDV"
-    - ipython -c "%load_ext ipython_IDV" 
+    - python3 -c "from ipython_IDV import drilsdown" || python -c "from ipython_IDV import drilsdown"
+    - ipython -c "from ipython_IDV import drilsdown"
