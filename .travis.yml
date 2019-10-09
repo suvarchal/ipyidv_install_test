@@ -4,14 +4,13 @@ python:
   - 3.7
 
 matrix:
-  include:
-  - os: linux
-    name: linux
-    python: 3.7
-    install: pip install ipython-IDV
-    script:
-    - python -c "import ipython_IDV"
-
+#  include:
+#  - os: linux
+#    name: linux
+#    python: 3.7
+#    install: pip install ipython-IDV
+#    script:
+#    - python -c "import ipython_IDV"
   - os: osx
     name: osx
     language: minimal
@@ -29,3 +28,7 @@ matrix:
     install: pip3 install ipython-IDV
     script:
     - python -c "import ipython_IDV"
+
+# tests on travis
+install: pip install ipython-IDV
+script: python -c "print('hello')"
