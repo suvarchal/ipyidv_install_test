@@ -4,14 +4,19 @@ python:
   - 3.7
 
 matrix:
+  include:
   - os: osx
     name: osx
     language: minimal
+    env: TOXENV=py3
+    addons:
+       homebrew:
+         update: true
+         packages: python3
     install: pip3 install ipython-IDV
     script:
     - python -c "print('hello')"
     - python -c "import ipython_IDV"
-
   - os: windows
     name: windows
     language: minimal
@@ -23,5 +28,5 @@ matrix:
     - python -c "import ipython_IDV"
 
 # tests on travis
-install: pip install ipython-IDV
-script: python -c "print('hello')"
+#install: pip install ipython-IDV
+#script: python -c "print('hello')"
