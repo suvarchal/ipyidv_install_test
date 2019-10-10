@@ -33,8 +33,10 @@ install:
     - pip3 install ipywidgets 
     - pip3 install requests
     - pip3 install ipython-IDV
+    - pip3 install ipyidv[addons] # addons also installs xarray and netcdf4
 
 # on windows python3 is command not found
 script:
     - python3 -c "from ipython_IDV import drilsdown" || python -c "from ipython_IDV import drilsdown"
     - ipython -c "from ipython_IDV import drilsdown"
+    - ipython -c "%load_ext ipyidv"
