@@ -10,23 +10,14 @@ matrix:
   - name: osx-py3.7
     os: osx
     osx_image: xcode11 # python 3.7 apparently
-    language: shell
-    #env: TOXENV=py3
-    #addons:
-    #   homebrew:
-    #     update: true
-    #     packages: python3
+    language: shell # python for osx not supported on travis
   - name: windows-py3.7
     os: windows
-    language: shell
+    language: shell # python for windows is not supported on travis
     before_install:
        - choco install python # python 3.7 apparently
        - python -m pip install --upgrade pip
     env: PATH=/c/Python37:/c/Python37/Scripts:$PATH
-#    install: pip3 install ipython-IDV
-#    script:
-#       - python
-#       - python -c "import ipython_IDV"
 
 # all languages should agree on these
 install:
