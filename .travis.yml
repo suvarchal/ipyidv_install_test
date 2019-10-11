@@ -31,5 +31,9 @@ install:
 # on windows python3 is command not found
 script:
     - python3 -c "from ipython_IDV import drilsdown" || python -c "from ipython_IDV import drilsdown"
+    - ipython -c "%load_ext ipython_IDV.drilsdown"
     - ipython -c "from ipython_IDV import drilsdown"
     - ipython -c "%load_ext ipyidv"
+    - pip3 uninstall ipywidgets requests ipython_IDV ipyidv -y
+    - pip3 install drilsdown
+    - ipython -c "%load_ext ipython_IDV.drilsdown"
